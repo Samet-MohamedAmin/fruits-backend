@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: 'a5853132-4f8b-4312-b6c4-532422bd4675'
   imageRepository: 'fruitsbackend'
   containerRegistry: 'exatechtest.azurecr.io'
-  dockerfilePath: 'Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
