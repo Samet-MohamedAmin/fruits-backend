@@ -15,7 +15,7 @@ variables:
   containerRegistry: 'exatechtest.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: |
-    '$(Build.BuildId)'
+    $(Build.BuildId)
     latest
 
   # Agent VM image name
