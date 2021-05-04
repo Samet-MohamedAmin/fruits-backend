@@ -14,9 +14,7 @@ variables:
   imageRepository: 'fruitsbackend'
   containerRegistry: 'exatechtest.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tags:
-    - '$(Build.BuildId)'
-    - 'latest'
+  tag: '$(Build.BuildId)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -38,5 +36,6 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tags)
+        tags:
+          - $(tag)
+          - latest
