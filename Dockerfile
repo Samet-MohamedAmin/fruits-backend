@@ -49,6 +49,7 @@ COPY --chown=1001 target/quarkus-app/app/ /deployments/app/
 COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
 
 EXPOSE ${PORT}
+ENV PORT=${PORT}
 USER 1001
 
 ENTRYPOINT [ "/deployments/run-java.sh" ]
