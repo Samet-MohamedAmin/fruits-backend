@@ -32,11 +32,21 @@ stages:
     steps:
     - script: ./mvnw package
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: Build image
       inputs:
-        command: buildAndPush
+        command: build
         repository: $(imageRepository)
+        containerRegistry: $(dockerRegistryServiceConnection)
         dockerfile: $(dockerfilePath)
+        tags: |
+          $(tag)
+        arguments: '--build-arg PORT="8090" '
+    - task: Docker@2
+      displayName: Push image to container registry
+      inputs:
+        command: push
+        repository: $(imageRepository)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
