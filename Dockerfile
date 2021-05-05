@@ -50,6 +50,7 @@ COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
 
 EXPOSE ${PORT}
 ENV PORT=${PORT}
+ENV MONGO_DB_HOST=${MONGO_DB_HOST}
 USER 1001
 
 ENTRYPOINT [ "/deployments/run-java.sh" ]
