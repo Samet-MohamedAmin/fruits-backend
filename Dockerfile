@@ -48,6 +48,8 @@ COPY --chown=1001 target/quarkus-app/*.jar /deployments/
 COPY --chown=1001 target/quarkus-app/app/ /deployments/app/
 COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
 
+ARG PORT=8080
+ARG MONGO_DB_HOST
 EXPOSE ${PORT}
 ENV PORT=${PORT}
 ENV MONGO_DB_HOST=${MONGO_DB_HOST}
